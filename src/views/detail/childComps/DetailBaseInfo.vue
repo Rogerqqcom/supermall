@@ -1,16 +1,29 @@
 <template>
+  <!--
+  const obj = {
+
+  }
+  //如果
+  Object.keys(obj).length === 0
+  //说明obj里面没有对象
+  -->
+  <!--先判断goods是否为空对象，再决定是否渲染-->
   <div v-if="Object.keys(goods).length !== 0" class="base-info">
+    <!--标题-->
     <div class="info-title">{{goods.title}}</div>
+    <!--价格-->
     <div class="info-price">
       <span class="n-price">{{goods.newPrice}}</span>
       <span class="o-price">{{goods.oldPrice}}</span>
       <span v-if="goods.discount" class="discount">{{goods.discount}}</span>
     </div>
+    <!--快递信息-->
     <div class="info-other">
       <span>{{goods.columns[0]}}</span>
       <span>{{goods.columns[1]}}</span>
       <span>{{goods.services[goods.services.length-1].name}}</span>
     </div>
+    <!--发货信息-->
     <div class="info-service">
       <span class="info-service-item" v-for="index in goods.services.length-1" :key="index">
         <img :src="goods.services[index-1].icon">
@@ -25,7 +38,11 @@
 		name: "DetailBaseInfo",
     props: {
 		  goods: {
-		    type: Object
+		    type: Object,
+        default() {
+          return {}
+        }
+
       }
     }
 	}

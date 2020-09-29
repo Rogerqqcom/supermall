@@ -23,7 +23,10 @@
 		name: "DetailParamInfo",
     props: {
 		  paramInfo: {
-		    type: Object
+		    type: Object,
+        default() {
+		      return {}
+        }
       }
     }
 	}

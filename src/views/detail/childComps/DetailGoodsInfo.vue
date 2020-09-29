@@ -8,13 +8,13 @@
     </div>
     <div class="info-key">{{detailInfo.detailImage[0].key}}</div>
     <div class="info-list">
-      <img v-for="(item, index) in detailInfo.detailImage[0].list" :key="index" :src="item" @load="imgLoad" alt="">
+      <img v-for="(item, index) in detailInfo.detailImage[0].list" :key="index" :src="item" @load="imageLoad" alt="">
     </div>
   </div>
 </template>
 
 <script>
-	export default {
+  export default {
 		name: "DetailGoodsInfo",
     props: {
       detailInfo: {
@@ -28,17 +28,30 @@
       }
     },
     methods: {
-	    imgLoad() {
-        if (++this.counter === this.imagesLength) {
+	   /*
+	   //方法1：（不实用，要配合watch使用）
+	   imgLoad() {
+	      //判断所有图片都加载完了， 那么进行一次回调就可以
+        //当counter自增到等于图片最终个数时再执行
+        // if (++this.counter === this.imagesLength) {
 	        this.$emit('imageLoad')
-        }
-	    }
+        // }
+	    }*/
+      //方法2，图片加载完成，发送一个事件到Detail组件中使用防抖函数计算图片高度
+      imageLoad() {
+        // console.log('aslllls');
+        //通过事件总线进行非父子组件通信，在首页监听
+        this.$emit('detailImageLoad')
+      }
     },
+    /*
+    //：配合方法1使用
     watch: {
 	    detailInfo() {
+	      //获取图片个数
 	    	this.imagesLength = this.detailInfo.detailImage[0].list.length
 	    }
-    }
+    }*/
 	}
 </script>
 

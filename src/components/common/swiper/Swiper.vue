@@ -1,13 +1,16 @@
 <template>
     <div id="hy-swiper">
+      <!--轮播图-->
       <div class="swiper" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
         <slot></slot>
       </div>
       <slot name="indicator">
       </slot>
+      <!--轮播图上的小圆点-->
       <div class="indicator">
         <slot name="indicator" v-if="showIndicator && slideCount>1">
-          <div v-for="(item, index) in slideCount" class="indi-item" :class="{active: index === currentIndex-1}" :key="index"></div>
+          <div v-for="(item, index) in slideCount" class="indi-item"
+               :class="{active: index === currentIndex-1}" :key="index"></div>
         </slot>
       </div>
     </div>
@@ -17,18 +20,22 @@
 	export default {
 		name: "Swiper",
     props: {
+		  //定时器速率
       interval: {
 		    type: Number,
         default: 3000
       },
+      //动画过渡时间
       animDuration: {
 		    type: Number,
         default: 300
       },
+      //超过轮播图多少 滑动时可以切换
       moveRatio: {
         type: Number,
         default: 0.25
       },
+      //是否显示导航圆点
       showIndicator: {
         type: Boolean,
         default: true
@@ -50,7 +57,7 @@
 
         // 2.开启定时器
         this.startTimer();
-      }, 100)
+      }, 500)
     },
     methods: {
 		  /**

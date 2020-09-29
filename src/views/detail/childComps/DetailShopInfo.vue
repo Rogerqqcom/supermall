@@ -40,7 +40,10 @@
 		name: "DetailShopInfo",
     props: {
 		  shop: {
-		    type: Object
+		    type: Object,
+        default() {
+		      return {}
+        }
       }
     },
     filters: {
