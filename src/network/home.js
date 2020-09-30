@@ -16,9 +16,9 @@ export function getHomeGoods(type, page) {
   })
 }
 
-let arr = []
+/*let arr = []
 
-const nums = [11, 22, 33]
+const nums = [11, 22, 33]*/
 
 //把数组的内容放到arr空数组里面
 //1.

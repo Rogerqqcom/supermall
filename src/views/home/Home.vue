@@ -110,7 +110,7 @@
         //在图片加载完了之后调用refreash()重新计算高度
         refresh()
       })*/
-      console.log('我是Home里面的mounted内容');
+      // console.log('我是Home里面的mounted内容');
 
     },
     methods: {
@@ -175,7 +175,6 @@
       swiperImageLoad() {
         //1.获取tabControl的offsetTop, 即tabControl距离顶部的高度
         //所以组件都有一个属性$el：用于获取组件中的元素
-        // console.log(this.$refs.tabControl.$el.offsetTop);
         // console.log(this.$refs.tabControl.$el.offsetTop);
         this.tabOffsetTop = this.$refs.tabControl2.$el.offsetTop
       },

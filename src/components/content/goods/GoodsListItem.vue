@@ -1,7 +1,7 @@
 <template>
   <div class="goods-item" @click="itemClick">
     <!--vue中通过@load监听图片是否加载完成,以便在scroll.vue进行refresh()刷新计算可滚动高度 {-->
-    <img v-lazy="showImg"  alt="" @load="imageLoad">
+    <img v-lazy="showImg" :key="showImg" alt="" @load="imageLoad">
     <div class="goods-info">
       <p>{{goodsItem.title}}</p>
       <span class="price"> {{goodsItem.price}}</span>
@@ -23,8 +23,8 @@
     },
     computed: {
       showImg() {
-        //从goodsItem从出去image或者show里面的img进行展示
-        return this.goodsItem.image || this.goodsItem.show.img
+        //从分类页右边底部内容里面取出img,或者在详情页里面获取到热门推荐的list的image，或者在首页商品展示list里面的show里面的img进行展示或者
+        return this.goodsItem.img || this.goodsItem.image || this.goodsItem.show.img
       }
     },
     methods: {
@@ -57,7 +57,6 @@
   .goods-item{
     padding-bottom: 40px;
     position: relative;
-
     width: 48%;
   }
   .goods-item img{

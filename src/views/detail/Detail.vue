@@ -41,7 +41,6 @@
   import {getDetail, Goods, Shop, GoodsParam, getRecommend} from "network/detail"
   import {debounce} from "common/utils";
   import {itemListenerMixin, backTopMixin} from "common/mixin";
-  import store from "../../store";
 
   import {mapActions} from 'vuex'
   export default {
@@ -218,9 +217,9 @@
         //4.决定tabControl是否吸顶（position： fixed)
         this.isTabFixed = (-position.y) > this.tabOffsetTop
       },
-      backTop() {
+/*      backTop() {
         this.$refs.scroll.scrollTo(0, 0)
-      },
+      },*/
       addToCart() {
         // 1.获取购物车需要展示的信息
         const product = {}

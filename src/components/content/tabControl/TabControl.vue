@@ -17,7 +17,7 @@
     props: {
       titles: {
         type: Array,
-        dafault() {
+        default() {
           return []
         }
       }
@@ -45,7 +45,7 @@
     height: 40px;
     line-height: 40px;
     z-index: 9;
-    background-color: #f3f3f3;
+    background-color: #f6f6f6;
 
   }
   .tab-control-item{

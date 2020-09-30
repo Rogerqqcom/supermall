@@ -34,7 +34,7 @@ export const backTopMixin = {
 	},
 	methods: {
 		backTop() {
-			this.$refs.scroll.scrollTo(0, 0, 1000)
+			this.$refs.scroll.scrollTo(0, 0)
 		},
 		listenShowBackTop(position) {
       this.isShowBackTop = (-position.y) > BACk_POSITION
