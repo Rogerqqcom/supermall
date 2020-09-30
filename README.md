@@ -1,4 +1,4 @@
-#想要获取项目中的接口请添加老师微信：coderwhy003
+#如果觉得还不错给个star, 谢谢哟
 # supermall
 
 ## Project setup
